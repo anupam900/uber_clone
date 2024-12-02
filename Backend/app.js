@@ -6,6 +6,8 @@ const app = express();
 const connectToDb = require('./db/db');
 const cookieParser = require('cookie-parser');
 const userRoutes = require('./routes/user.routes');
+const captainRoutes = require('./routes/captain.routes');
+
 connectToDb();
 app.use(cors());
 //Cross-Origin Resource Sharing (CORS). This middleware allows your server to accept requests from different origins (domains),
@@ -18,6 +20,6 @@ res.send("Hello World");
 });
 app.use('/users',userRoutes);
 
-
+app.use('/captains',captainRoutes);
 
 module.exports = app;
